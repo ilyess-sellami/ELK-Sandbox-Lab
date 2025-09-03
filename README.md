@@ -108,27 +108,30 @@ This is the Logstash pipeline configuration file:
 
 ```conf
 input {
-  beats {
+  tcp {
     port => 5044
+    codec => json_lines
   }
-}
-
-filter {
-  # Add custom filters here if needed
 }
 
 output {
+  stdout { codec => rubydebug }
   elasticsearch {
     hosts => ["http://elasticsearch:9200"]
+    user => "elastic"
+    password => "changeme"
     index => "filebeat-%{+YYYY.MM.dd}"
   }
-  stdout { codec => rubydebug }
 }
 ```
 
 - Input Section: Receives logs from Filebeat agents on port `5044`.
 - Filter Section: Optional filters to parse, enrich, or modify logs.
 - Output Section: Sends processed logs to Elasticsearch and prints to console for debugging.
+
+
+---
+
 
 ## 5. Getting Started
 
@@ -165,3 +168,6 @@ http://localhost:5601
 Login using default credentials:
 - **Username**: `elastic`
 - **Password**: `changeme`
+Once authenticated, you will see the **Kibana dashboard** where you can explore and visualize logs.
+
+![Kibana Dashboard](screenshots/kibana_dashboard.png)
