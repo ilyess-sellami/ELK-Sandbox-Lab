@@ -10,13 +10,13 @@
 
 This project demonstrates:
 
-How to dockerize the ELK stack for local or server environments.
+- How to dockerize the ELK stack for local or server environments.
 
-How to install Filebeat on Linux servers.
+- How to install Filebeat on Linux servers.
 
-How to forward system and application logs to ELK via Logstash.
+- How to forward system and application logs to ELK via Logstash.
 
-Basic log visualization and exploration in Kibana.
+- Basic log visualization and exploration in Kibana.
 
 It is perfect for analysts who want a **safe, sandbox environment** to experiment with SIEM concepts and log processing pipelines.
 
