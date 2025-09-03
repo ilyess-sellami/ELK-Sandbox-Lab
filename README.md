@@ -168,6 +168,7 @@ http://localhost:5601
 Login using default credentials:
 - **Username**: `elastic`
 - **Password**: `changeme`
+
 Once authenticated, you will see the **Kibana dashboard** where you can explore and visualize logs.
 
 ![Kibana Dashboard](screenshots/kibana_dashboard.png)
