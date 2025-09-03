@@ -57,3 +57,46 @@ It is perfect for analysts who want a **safe, sandbox environment** to experimen
 - Docker bridge network for ELK containers.
 - Port access (Elasticsearch: `9200`, Logstash: `5044`, Kibana: `5601`)
 
+
+---
+
+
+## 4. Docker-Compose and Configuration Overview
+
+### docker-compose.yml
+
+This file defines the multi-container ELK stack and its configuration.
+
+**Elasticsearch**
+
+- Single-node cluster (`discovery.type=single-node`)
+
+- Java heap size: 512MB (`ES_JAVA_OPTS=-Xms512m -Xmx512m`)
+
+- Security enabled (`xpack.security.enabled=true`)
+
+- Default superuser credentials (username: `elastic` && password: `changeme`)
+
+- Port `9200` exposed to host
+
+**Logstash**
+
+- Custom pipeline configuration mounted from `./logstash/pipeline`
+
+- Java heap size: 256MB (`LS_JAVA_OPTS=-Xms256m -Xmx256m`)
+
+- Listens on port `5044` for Filebeat input
+
+- Depends on Elasticsearch
+
+**Kibana**
+
+- Connects to Elasticsearch at `http://elasticsearch:9200`
+
+- Exposes web UI on port `5601`
+
+- Depends on Elasticsearch
+
+**Network**
+
+- Custom bridge network elk for container communication
