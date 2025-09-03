@@ -1,5 +1,7 @@
 # ELK Sandbox Lab
 
+![ELK Sandbox Lab Image](screenshots/elk_docker.png)
+
 ---
 
 ## 1. Project Overview
