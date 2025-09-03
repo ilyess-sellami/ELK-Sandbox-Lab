@@ -20,6 +20,13 @@ It is perfect for analysts who want a **safe, sandbox environment** to experimen
 
 ![ELK Architecture](screenshots/elk_architecture.png)
 
+**Flow Explanation**:
+
+- Filebeat collects logs from the Ubuntu server.
+- Logstash receives, parses, and forwards logs.
+- Elasticsearch stores and indexes the logs.
+- Kibana provides visualization and analysis capabilities.
+
 ## 3. Project Requirements
 
 ### System Requirements
