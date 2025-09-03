@@ -1,5 +1,7 @@
 # ELK Sandbox Lab
 
+---
+
 ## 1. Project Overview
 
 **ELK Sandbox Lab** is a hands-on, educational project designed to help security analysts and system administrators learn how to deploy and manage the ELK stack (Elasticsearch, Logstash, Kibana) using Docker.
@@ -16,6 +18,9 @@ Basic log visualization and exploration in Kibana.
 
 It is perfect for analysts who want a **safe, sandbox environment** to experiment with SIEM concepts and log processing pipelines.
 
+---
+
+
 ## 2. Architecture
 
 ![ELK Architecture](screenshots/elk_architecture.png)
@@ -26,6 +31,10 @@ It is perfect for analysts who want a **safe, sandbox environment** to experimen
 - Logstash receives, parses, and forwards logs.
 - Elasticsearch stores and indexes the logs.
 - Kibana provides visualization and analysis capabilities.
+
+
+---
+
 
 ## 3. Project Requirements
 
