@@ -100,3 +100,68 @@ This file defines the multi-container ELK stack and its configuration.
 **Network**
 
 - Custom bridge network elk for container communication
+
+
+### logstash/pipeline/pipeline.conf
+
+This is the Logstash pipeline configuration file:
+
+```conf
+input {
+  beats {
+    port => 5044
+  }
+}
+
+filter {
+  # Add custom filters here if needed
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://elasticsearch:9200"]
+    index => "filebeat-%{+YYYY.MM.dd}"
+  }
+  stdout { codec => rubydebug }
+}
+```
+
+- Input Section: Receives logs from Filebeat agents on port `5044`.
+- Filter Section: Optional filters to parse, enrich, or modify logs.
+- Output Section: Sends processed logs to Elasticsearch and prints to console for debugging.
+
+## 5. Getting Started
+
+### 5.1 Clone the Repository
+
+```bash
+git clone https://github.com/ilyess-sellami/ELK-Sandbox-Lab.git
+cd ELK-Sandbox-Lab
+```
+
+### 5.2 Start ELK Stack with Docker
+Bring up all services in detached mode:
+```bash
+docker-compose up -d
+```
+
+![Run Docker](screenshots/run_docker.png)
+
+
+Check that containers are running:
+```bash
+docker ps
+```
+You should see:
+- `elasticsearch` running on port `9200`
+- `logstash` running on port `5044`
+- `kibana` running on port `5601`
+
+## 5.3 Access Kibana
+Open your browser and navigate to:
+```bash
+http://localhost:5601
+```
+Login using default credentials:
+- **Username**: `elastic`
+- **Password**: `changeme`
