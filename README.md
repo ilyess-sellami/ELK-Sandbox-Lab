@@ -171,3 +171,92 @@ Login using default credentials:
 Once authenticated, you will see the **Kibana dashboard** where you can explore and visualize logs.
 
 ![Kibana Dashboard](screenshots/kibana_dashboard.png)
+
+
+### 5.4 Install and Configure Filebeat on Linux
+
+Add the Beats Repository (APT):
+```bash
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+sudo apt-get install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-9.x.list
+```
+Update APT and install Filebeat:
+```bash
+sudo apt-get update && sudo apt-get install filebeat
+```
+Configure Filebeat to Send Logs to Logstash:
+```bash
+sudo nano /etc/filebeat/filebeat.yml
+```
+Set the Logstash output:
+```yml
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/*.log
+
+output.logstash:
+  hosts: ["<ELK_SERVER_IP>:5044"]
+```
+Replace `<ELK_SERVER_IP>` with your ELK Docker host IP.
+
+Enable and Start Filebeat:
+```bash
+sudo systemctl enable filebeat
+sudo systemctl start filebeat
+```
+Check status:
+```bash
+sudo systemctl status filebeat
+```
+
+![Filebeat Status](screenshots/filebeat_status.png)
+
+### 5.5 Verify Logs in Kibana
+After starting Filebeat and ensuring logs are being sent, you can view them in Kibana.
+
+**Create an Index Pattern**
+
+1. Go to **Stack Management → Index Patterns**.
+
+2. Click **Create Index Pattern**.
+
+3. Enter: `filebeat-*`
+
+4. Select the **@timestamp** field.
+
+5. Click **Create index pattern**
+
+**Explore Logs**
+
+1. Go to **Discover**.
+
+2. Select the `filebeat-*` index pattern.
+
+3. You should see logs from your Ubuntu server, like system logs or application logs.
+
+![Kibana Discover Logs](screenshots/kibana_discover_logs.png)
+
+
+---
+
+
+## 6. Conclusion
+
+The **ELK Sandbox Lab** project provides a complete, hands-on environment for learning how to deploy and manage the ELK stack using Docker.
+
+By completing this lab, you have learned how to:
+
+Dockerize Elasticsearch, Logstash, and Kibana for easy deployment.
+
+Enable Elasticsearch security and configure Kibana with credentials.
+
+Install and configure Filebeat on a Linux server to forward logs to Logstash.
+
+Verify log ingestion and explore logs in Kibana’s dashboard.
+
+Create index patterns, filters, and visualizations for real-time log analysis.
+
+This sandbox is ideal for security analysts, system administrators, and anyone looking to gain practical experience with **SIEM concepts, log management, and the ELK stack**.
