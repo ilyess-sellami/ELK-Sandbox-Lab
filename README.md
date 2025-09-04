@@ -250,14 +250,14 @@ The **ELK Sandbox Lab** project provides a complete, hands-on environment for le
 
 By completing this lab, you have learned how to:
 
-Dockerize Elasticsearch, Logstash, and Kibana for easy deployment.
+- Dockerize Elasticsearch, Logstash, and Kibana for easy deployment.
 
-Enable Elasticsearch security and configure Kibana with credentials.
+- Enable Elasticsearch security and configure Kibana with credentials.
 
-Install and configure Filebeat on a Linux server to forward logs to Logstash.
+- Install and configure Filebeat on a Linux server to forward logs to Logstash.
 
-Verify log ingestion and explore logs in Kibana’s dashboard.
+- Verify log ingestion and explore logs in Kibana’s dashboard.
 
-Create index patterns, filters, and visualizations for real-time log analysis.
+- Create index patterns, filters, and visualizations for real-time log analysis.
 
 This sandbox is ideal for security analysts, system administrators, and anyone looking to gain practical experience with **SIEM concepts, log management, and the ELK stack**.
