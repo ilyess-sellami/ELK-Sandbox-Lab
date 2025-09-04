@@ -160,7 +160,7 @@ You should see:
 - `logstash` running on port `5044`
 - `kibana` running on port `5601`
 
-## 5.3 Access Kibana
+### 5.3 Access Kibana
 Open your browser and navigate to:
 ```bash
 http://localhost:5601
