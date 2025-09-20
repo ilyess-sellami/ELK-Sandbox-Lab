@@ -1,6 +1,6 @@
 # ELK Sandbox Lab – Dockerized ELK Stack for Log Collection, Analysis, and Visualization
 
-![ELK Sandbox Lab Image](screenshots/elk_docker.png)
+![ELK Sandbox Lab Image](screenshots/ELK-Sandbox-Lab.png)
 
 ---
 
