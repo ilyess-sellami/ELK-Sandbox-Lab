@@ -1,4 +1,8 @@
-# ELK Sandbox Lab – Dockerized ELK Stack for Log Collection, Analysis, and Visualization
+# ELK Sandbox Lab
+
+**Dockerized ELK Stack for Log Collection, Analysis, and Visualization**
+
+---
 
 ![ELK Sandbox Lab Image](screenshots/ELK-Sandbox-Lab.png)
 
@@ -177,20 +181,27 @@ Once authenticated, you will see the **Kibana dashboard** where you can explore 
 ### 5.4 Install and Configure Filebeat on Linux
 
 Add the Beats Repository (APT):
+
 ```bash
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 sudo apt-get install apt-transport-https
 echo "deb https://artifacts.elastic.co/packages/9.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-9.x.list
 ```
+
 Update APT and install Filebeat:
+
 ```bash
 sudo apt-get update && sudo apt-get install filebeat
 ```
+
 Configure Filebeat to Send Logs to Logstash:
+
 ```bash
 sudo nano /etc/filebeat/filebeat.yml
 ```
+
 Set the Logstash output:
+
 ```yml
 filebeat.inputs:
 - type: log
@@ -204,11 +215,14 @@ output.logstash:
 Replace `<ELK_SERVER_IP>` with your ELK Docker host IP.
 
 Enable and Start Filebeat:
+
 ```bash
 sudo systemctl enable filebeat
 sudo systemctl start filebeat
 ```
+
 Check status:
+
 ```bash
 sudo systemctl status filebeat
 ```
@@ -216,6 +230,7 @@ sudo systemctl status filebeat
 ![Filebeat Status](screenshots/filebeat_status.png)
 
 ### 5.5 Verify Logs in Kibana
+
 After starting Filebeat and ensuring logs are being sent, you can view them in Kibana.
 
 **Create an Index Pattern**
