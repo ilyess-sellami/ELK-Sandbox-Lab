@@ -4,7 +4,7 @@
 
 ---
 
-![ELK Sandbox Lab Image](docs/ELK-Sandbox-Lab.png)
+![ELK Sandbox Lab Image](docs/github_banner_image.png)
 
 ---
 
