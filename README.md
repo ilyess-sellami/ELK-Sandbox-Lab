@@ -4,7 +4,7 @@
 
 ---
 
-![ELK Sandbox Lab Image](screenshots/ELK-Sandbox-Lab.png)
+![ELK Sandbox Lab Image](docs/ELK-Sandbox-Lab.png)
 
 ---
 
@@ -29,7 +29,7 @@ It is perfect for analysts who want a **safe, sandbox environment** to experimen
 
 ## 2. Architecture
 
-![ELK Architecture](screenshots/elk_architecture.png)
+![ELK Architecture](docs/elk_architecture.png)
 
 **Flow Explanation**:
 
@@ -152,7 +152,7 @@ Bring up all services in detached mode:
 docker-compose up -d
 ```
 
-![Run Docker](screenshots/run_docker.png)
+![Run Docker](docs/run_docker.png)
 
 
 Check that containers are running:
@@ -175,7 +175,7 @@ Login using default credentials:
 
 Once authenticated, you will see the **Kibana dashboard** where you can explore and visualize logs.
 
-![Kibana Dashboard](screenshots/kibana_dashboard.png)
+![Kibana Dashboard](docs/kibana_dashboard.png)
 
 
 ### 5.4 Install and Configure Filebeat on Linux
@@ -227,7 +227,7 @@ Check status:
 sudo systemctl status filebeat
 ```
 
-![Filebeat Status](screenshots/filebeat_status.png)
+![Filebeat Status](docs/filebeat_status.png)
 
 ### 5.5 Verify Logs in Kibana
 
@@ -253,7 +253,7 @@ After starting Filebeat and ensuring logs are being sent, you can view them in K
 
 3. You should see logs from your Ubuntu server, like system logs or application logs.
 
-![Kibana Discover Logs](screenshots/kibana_discover_logs.png)
+![Kibana Discover Logs](docs/kibana_discover_logs.png)
 
 
 ---
